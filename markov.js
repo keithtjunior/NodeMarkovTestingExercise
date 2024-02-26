@@ -62,5 +62,4 @@ class MarkovMachine {
 
 }
 
-let m = new MarkovMachine('the cat in the hat is in the back');
-console.log(m.makeText());
+module.exports = MarkovMachine
