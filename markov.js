@@ -53,7 +53,7 @@ class MarkovMachine {
       // add key value
       if(this.markov[key] && this.markov[key].length && 
         textArr.length < numWords-1 ) textArr.push(key + ' ');
-      else textArr.push(key + '. ')
+      else textArr.push(key + '. ');
 
     } while (textArr.length < numWords);
 
