@@ -39,7 +39,7 @@ class MarkovMachine {
       key = keys[Math.floor(Math.random() * keys.length)]
 
     // add first key value
-    textArr.push(key);
+    textArr.push(key + ' ');
 
     do {
       // check if object has values in array
@@ -47,17 +47,17 @@ class MarkovMachine {
         key = this.markov[key][(Math.floor(Math.random() * this.markov[key].length))];
       }else{
         // select random value if last value added was a duplicate
-        while(textArr.slice(-1)[0] === key || textArr.slice(-1)[0] === key + '. ')
+        while(textArr.slice(-1)[0] === key + ' ' || textArr.slice(-1)[0] === key + '. ')
           key = keys[Math.floor(Math.random() * keys.length)]  
       }
       // add key value
       if(this.markov[key] && this.markov[key].length && 
-        textArr.length < numWords-1 ) textArr.push(key);
+        textArr.length < numWords-1 ) textArr.push(key + ' ');
       else textArr.push(key + '. ')
 
     } while (textArr.length < numWords);
 
-    return textArr.join(' ');
+    return textArr.join('');
   }
 
 }
