@@ -17,7 +17,13 @@ class MarkovMachine {
    *  {"the": ["cat", "hat"], "cat": ["in"], "in": ["the"], "hat": [null]} */
 
   makeChains() {
-    // TODO
+    return this.words.reduce((obj, word) => {
+      return {
+        ...obj,
+        [word]: this.words.map((val, i, arr) => { if(val===word){ return arr[i+1] }})
+                .filter((item) => item)
+      }
+    }, '');
   }
 
 
@@ -27,3 +33,6 @@ class MarkovMachine {
     // TODO
   }
 }
+
+let m = new MarkovMachine("the cat in the hat")
+console.log(m.makeChains())
